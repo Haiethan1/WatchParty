@@ -3,13 +3,14 @@
   "version": "1.0.0",
   "description": "Watch party",
   "main": "app.js",
+  "type": "module",
   "dependencies": {
     "express": "^4.18.1",
+    "body-parser": "1.20.0",
     "nodemon": "^2.0.20"
   },
   "devDependencies": {
-    "express": "^4.18.1",
-    "nodemon": "^2.0.20"
+
   },
   "scripts": {
     "start": "node app.js",
