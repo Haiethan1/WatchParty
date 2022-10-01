@@ -1,6 +1,6 @@
-
+import express from 'express';
 // Importing express module
-const express = require('express');
+// const express = require('express');
 const app = express();
  
 // Getting Request
