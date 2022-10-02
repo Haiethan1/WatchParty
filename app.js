@@ -1,24 +1,31 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+import express from 'express';
+import createError from 'http-errors';
+import path from 'path';
+import cookieParser from 'cookie-parser';
+import logger from 'morgan';
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+import { router as indexRouter } from './routes/index.js'
+import { router as usersRouter } from './routes/users.js'
+import { fileURLToPath } from 'url';
 
-var app = express();
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = path.dirname(__filename);
+const app = express();
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'hbs');
 
+// unknown?
 app.use(logger('dev'));
+app.use(cookieParser());
+
+// static stuff
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
-app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// routes
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 
@@ -38,4 +45,9 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-module.exports = app;
+// Establishing the port
+const PORT = process.env.PORT ||5000;
+ 
+// Executing the server on given port number
+app.listen(PORT, console.log(
+  `Server started on port ${PORT}`));
