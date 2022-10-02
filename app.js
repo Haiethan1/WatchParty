@@ -7,12 +7,12 @@ const app = express();
 app.get('/', (req, res) => {
  
     // Sending the response
-    res.send('Hello World!')
+    res.send('Hello Sekai!')
     
     // Ending the response
     res.end()
 })
- 
+
 // Establishing the port
 const PORT = process.env.PORT ||5000;
  
