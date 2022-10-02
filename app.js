@@ -45,9 +45,10 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-// Establishing the port
-const PORT = process.env.PORT ||5000;
+export { app };
+// // Establishing the port
+// const PORT = process.env.PORT ||5000;
  
-// Executing the server on given port number
-app.listen(PORT, console.log(
-  `Server started on port ${PORT}`));
+// // Executing the server on given port number
+// app.listen(PORT, console.log(
+//   `Server started on port ${PORT}`));

@@ -1,12 +1,14 @@
 #!/usr/bin/env node
-
+import { app } from '../app.js';
+import debug from 'debug';
+import http from 'http';
 /**
  * Module dependencies.
  */
 
-var app = require('../app');
-var debug = require('debug')('watchparty:server');
-var http = require('http');
+// var app = require('../app');
+// var debug = require('debug')('watchparty:server');
+// var http = require('http');
 
 /**
  * Get port from environment and store in Express.
@@ -26,6 +28,7 @@ var server = http.createServer(app);
  */
 
 server.listen(port);
+console.log(`Server started on port ${port}`)
 server.on('error', onError);
 server.on('listening', onListening);
 
